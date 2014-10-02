@@ -14,7 +14,7 @@ public class Fist : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (controller.rightHandState == PlayerController.PUNCHING) {
-			animator.SetInteger("AnimState", 1);
+			animator.SetInteger("AnimState", 2);
 		} else {
 			animator.SetInteger("AnimState", 0);
 		}
