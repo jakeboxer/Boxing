@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class Fist : MonoBehaviour {
+	public enum FistSide { Left, Right };
+
+	public FistSide fistSide;
+
 	private Animator animator;
 	private PlayerController controller;
 
@@ -13,10 +17,18 @@ public class Fist : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (controller.rightHandState == PlayerController.PUNCHING) {
+		if (GetControlState() == PlayerController.ControlState.Punch) {
 			animator.SetInteger("AnimState", 2);
 		} else {
 			animator.SetInteger("AnimState", 0);
+		}
+	}
+
+	PlayerController.ControlState GetControlState () {
+		if (fistSide == FistSide.Left) {
+			return controller.leftControlState;
+		} else {
+			return controller.rightControlState;
 		}
 	}
 }

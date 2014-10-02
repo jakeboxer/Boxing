@@ -2,21 +2,27 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-	public const int IDLE = 0;
-	public const int BLOCKING = 1;
-	public const int PUNCHING = 2;
+	public enum ControlState { Idle, Block, Punch };
 
-	public int leftHandState = IDLE;
-	public int rightHandState = IDLE;
+	public ControlState leftControlState = ControlState.Idle;
+	public ControlState rightControlState = ControlState.Idle;
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("'")) {
-			rightHandState = PUNCHING;
+			rightControlState = ControlState.Punch;
 		} else if (Input.GetKey("/")) {
-			rightHandState = BLOCKING;
+			rightControlState = ControlState.Block;
 		} else {
-			rightHandState = IDLE;
+			rightControlState = ControlState.Idle;
+		}
+
+		if (Input.GetKey("a")) {
+			leftControlState = ControlState.Punch;
+		} else if (Input.GetKey("z")) {
+			leftControlState = ControlState.Block;
+		} else {
+			leftControlState = ControlState.Idle;
 		}
 	}
 }
