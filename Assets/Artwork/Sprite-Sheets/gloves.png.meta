@@ -2,10 +2,18 @@ fileFormatVersion: 2
 guid: b4cb9865a802c4807be29c1aaa182d6c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Glove-Red-Front
-    21300002: Glove-Red-Back
-    21300004: Glove-Blue-Front
-    21300006: Glove-Blue-Back
+    21300000: GloveRedFront
+    21300002: GloveRedBack
+    21300004: GloveBlueFront
+    21300006: GloveBlueBack
+    21300008: GloveRedLeftBack
+    21300010: GloveRedLeftFront
+    21300012: GloveRedRightFront
+    21300014: GloveRedRightBack
+    21300016: GloveBlueLeftBack
+    21300018: GloveBlueLeftFront
+    21300020: GloveBlueRightFront
+    21300022: GloveBlueRightBack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,43 +55,83 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Glove-Red-Front
+    - name: GloveRedLeftBack
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 43
-        height: 64
+        y: 190
+        width: 45
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Glove-Red-Back
+    - name: GloveRedLeftFront
       rect:
         serializedVersion: 2
-        x: 43
-        y: 64
-        width: 43
-        height: 64
+        x: 45
+        y: 190
+        width: 45
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Glove-Blue-Front
+    - name: GloveRedRightFront
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 190
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GloveRedRightBack
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 190
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GloveBlueLeftBack
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 43
-        height: 64
+        y: 124
+        width: 45
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Glove-Blue-Back
+    - name: GloveBlueLeftFront
       rect:
         serializedVersion: 2
-        x: 43
-        y: 0
-        width: 43
-        height: 64
+        x: 45
+        y: 124
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GloveBlueRightFront
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 124
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GloveBlueRightBack
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 124
+        width: 45
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
