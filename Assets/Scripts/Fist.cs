@@ -15,6 +15,8 @@ public class Fist : MonoBehaviour {
 	void Update () {
 		if (controller.rightHandState == PlayerController.PUNCHING) {
 			animator.SetInteger("AnimState", 1);
+		} else {
+			animator.SetInteger("AnimState", 0);
 		}
 	}
 }
