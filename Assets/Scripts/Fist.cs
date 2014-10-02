@@ -8,7 +8,9 @@ public class Fist : MonoBehaviour {
 
 	private Animator animator;
 	private PlayerController controller;
+
 	private Vector2 idlePosition;
+	private Vector2 blockingPosition;
 	private Vector2 punchingPosition;
 
 	// Use this for initialization
@@ -18,19 +20,30 @@ public class Fist : MonoBehaviour {
 
 		idlePosition = transform.position;
 
-		float punchingX = idlePosition.x + (fistSide == FistSide.Left ? 1.5f : -1.5f);
-		float punchingY = idlePosition.y + 3f;
+		float blockingX = idlePosition.x;
+		float blockingY = idlePosition.y + 2f;
+		blockingPosition = new Vector2(blockingX, blockingY);
+
+		float punchingX = blockingX + (fistSide == FistSide.Left ? 2f : -2f);
+		float punchingY = blockingY + 2f;
 		punchingPosition = new Vector2(punchingX, punchingY);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (GetControlState() == PlayerController.ControlState.Punch) {
+		switch (GetControlState()) {
+		case PlayerController.ControlState.Punch:
 			animator.SetInteger("AnimState", 2);
 			transform.position = punchingPosition;
-		} else {
+			break;
+		case PlayerController.ControlState.Block:
+			animator.SetInteger("AnimState", 1);
+			transform.position = blockingPosition;
+			break;
+		case PlayerController.ControlState.Idle:
 			animator.SetInteger("AnimState", 0);
 			transform.position = idlePosition;
+			break;
 		}
 	}
 
