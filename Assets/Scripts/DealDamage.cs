@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class DealDamage : MonoBehaviour {
-	public Character target;
+	public Fighter target;
 	public float damage = 10f;
 
 	public void Fire () {
