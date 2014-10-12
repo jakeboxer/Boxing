@@ -10,6 +10,7 @@ public class Fist : MonoBehaviour {
 	private Animator animator;
 	private FighterController controller;
 	private DealDamage dealDamage;
+	private Fighter fighter;
 
 	private Vector2 idlePosition;
 	private Vector2 blockingPosition;
@@ -31,6 +32,7 @@ public class Fist : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		controller = GetComponent<FighterController>();
 		dealDamage = GetComponentInParent<DealDamage>();
+		fighter = GetComponentInParent<Fighter>();
 	}
 	
 	// Update is called once per frame
@@ -51,7 +53,7 @@ public class Fist : MonoBehaviour {
 		}
 	}
 
-	FighterController.ControlState GetControlState () {
+	public FighterController.ControlState GetControlState () {
 		if (fistSide == FistSide.Left) {
 			return controller.leftControlState;
 		} else {
@@ -60,6 +62,11 @@ public class Fist : MonoBehaviour {
 	}
 
 	void OnPunch () {
-		dealDamage.Fire();
+		Debug.Log ("Fighter:", fighter);
+		Debug.Log ("Target:", fighter.target);
+
+		if (!fighter.target.IsBlocking(fistSide)) {
+			dealDamage.Fire();
+		}
 	}
 }

@@ -8,11 +8,16 @@ public class Fighter : MonoBehaviour {
 		get;
 		private set;
 	}
+	public Fighter target;
+	public GameObject takeDamageEffect;
+	
+	public Fist leftFist;
+	public Fist rightFist;
+
 	public bool isDead {
 		get;
 		private set;
 	}
-	public GameObject takeDamageEffect;
 
 	void Awake () {
 		health = maxHealth;
@@ -26,6 +31,10 @@ public class Fighter : MonoBehaviour {
 	public void Die () {
 		isDead = true;
 		health = 0f;
+	}
+
+	public bool IsBlocking(Fist.FistSide fistSide) {
+		return GetFist(fistSide).GetControlState() == FighterController.ControlState.Block;
 	}
 
 	public void Respawn () {
@@ -43,6 +52,14 @@ public class Fighter : MonoBehaviour {
 
 		if (health <= 0f) {
 			Die();
+		}
+	}
+
+	public Fist GetFist(Fist.FistSide fistSide) {
+		if (fistSide == Fist.FistSide.Left) {
+			return leftFist;
+		} else {
+			return rightFist;
 		}
 	}
 }

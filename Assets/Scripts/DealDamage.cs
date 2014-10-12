@@ -2,12 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 public class DealDamage : MonoBehaviour {
-	public Fighter target;
 	public float damage = 10f;
 
-	public void Fire () {
-		if (target == null) { return; }
+	private Fighter fighter;
 
-		target.TakeDamage(damage);
+	void Start () {
+		fighter = GetComponent<Fighter>();
+	}
+
+	public void Fire () {
+		if (fighter.target == null) { return; }
+
+		fighter.target.TakeDamage(damage);
 	}
 }
