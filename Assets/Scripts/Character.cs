@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
+	public string displayName;
 	public float maxHealth = 100f;
 	public float health {
 		get;
