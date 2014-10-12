@@ -9,6 +9,5 @@ public class DealDamage : MonoBehaviour {
 		if (target == null) { return; }
 
 		target.TakeDamage(damage);
-		Debug.Log("dealing damage");
 	}
 }

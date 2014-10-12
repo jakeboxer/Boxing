@@ -34,7 +34,8 @@ public class Character : MonoBehaviour {
 
 	public void TakeDamage (float damage) {
 		if (takeDamageEffect) {
-			Instantiate(takeDamageEffect, transform.position, transform.rotation);
+			var positionOffset = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f);
+			Instantiate(takeDamageEffect, transform.position + positionOffset, transform.rotation);
 		}
 
 		health -= damage;
