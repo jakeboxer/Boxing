@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class OpponentController : FighterController {
-	public float speed = 2f;
+	public float speed = 1f;
 
 	private ControlState lastLeftControlState;
 	private ControlState lastRightControlState;
