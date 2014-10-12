@@ -5,6 +5,7 @@ public class Fist : MonoBehaviour {
 	public enum FistSide { Left, Right };
 
 	public FistSide fistSide;
+	public float stateChangeOffset;
 
 	private Animator animator;
 	private FighterController controller;
@@ -18,11 +19,11 @@ public class Fist : MonoBehaviour {
 		idlePosition = transform.position;
 		
 		float blockingX = idlePosition.x;
-		float blockingY = idlePosition.y + 2f;
+		float blockingY = idlePosition.y + stateChangeOffset;
 		blockingPosition = new Vector2(blockingX, blockingY);
 		
-		float punchingX = blockingX + (fistSide == FistSide.Left ? 2f : -2f);
-		float punchingY = blockingY + 2f;
+		float punchingX = blockingX + (fistSide == FistSide.Left ? stateChangeOffset : -stateChangeOffset);
+		float punchingY = blockingY + stateChangeOffset;
 		punchingPosition = new Vector2(punchingX, punchingY);
 	}
 
