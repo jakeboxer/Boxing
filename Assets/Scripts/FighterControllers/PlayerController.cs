@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-	public enum ControlState { Idle, Block, Punch };
-
-	public ControlState leftControlState = ControlState.Idle;
-	public ControlState rightControlState = ControlState.Idle;
-
+public class PlayerController : FighterController {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("'")) {

@@ -7,7 +7,7 @@ public class Fist : MonoBehaviour {
 	public FistSide fistSide;
 
 	private Animator animator;
-	private PlayerController controller;
+	private FighterController controller;
 	private DealDamage dealDamage;
 
 	private Vector2 idlePosition;
@@ -28,7 +28,7 @@ public class Fist : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator>();
-		controller = GetComponent<PlayerController>();
+		controller = GetComponent<FighterController>();
 		dealDamage = GetComponentInParent<DealDamage>();
 	}
 	
@@ -50,7 +50,7 @@ public class Fist : MonoBehaviour {
 		}
 	}
 
-	PlayerController.ControlState GetControlState () {
+	FighterController.ControlState GetControlState () {
 		if (fistSide == FistSide.Left) {
 			return controller.leftControlState;
 		} else {
