@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class PunchingIntervalOpponentController : IntervalOpponentController {
-
 	public override void IntervalPassed () {
 		if (leftControlState == ControlState.Idle) {
 			leftControlState = ControlState.Punch;
