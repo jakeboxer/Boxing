@@ -8,25 +8,28 @@ public class Fist : MonoBehaviour {
 
 	private Animator animator;
 	private PlayerController controller;
+	private DealDamage dealDamage;
 
 	private Vector2 idlePosition;
 	private Vector2 blockingPosition;
 	private Vector2 punchingPosition;
 
-	// Use this for initialization
-	void Start () {
-		animator = GetComponent<Animator>();
-		controller = GetComponent<PlayerController>();
-
+	void Awake () {
 		idlePosition = transform.position;
-
+		
 		float blockingX = idlePosition.x;
 		float blockingY = idlePosition.y + 2f;
 		blockingPosition = new Vector2(blockingX, blockingY);
-
+		
 		float punchingX = blockingX + (fistSide == FistSide.Left ? 2f : -2f);
 		float punchingY = blockingY + 2f;
 		punchingPosition = new Vector2(punchingX, punchingY);
+	}
+
+	void Start () {
+		animator = GetComponent<Animator>();
+		controller = GetComponent<PlayerController>();
+		dealDamage = GetComponentInParent<DealDamage>();
 	}
 	
 	// Update is called once per frame
@@ -53,5 +56,9 @@ public class Fist : MonoBehaviour {
 		} else {
 			return controller.rightControlState;
 		}
+	}
+
+	void OnPunch () {
+		dealDamage.Fire();
 	}
 }
